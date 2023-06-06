@@ -1,0 +1,13 @@
+{
+    "openai_key": "",
+    "modules": [
+        "root",
+        "billboard",
+        "coming_soon",
+        "movie",
+        "date",
+        "pay",
+        "invoice",
+        "movie"
+    ]
+}
