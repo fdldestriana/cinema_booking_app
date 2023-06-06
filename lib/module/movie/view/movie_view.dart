@@ -26,7 +26,19 @@ class MovieView extends StatefulWidget {
             children: [
               Stack(
                 children: [
-                  Image.asset("assets/banner/endgame_banner.png"),
+                  ShaderMask(
+                      shaderCallback: (Rect bounds) {
+                        return const LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              Color(0x00161621),
+                              Color(0xFF161621),
+                              Color(0x00161621)
+                            ]).createShader(bounds);
+                      },
+                      blendMode: BlendMode.dstIn,
+                      child: Image.asset("assets/banner/endgame_banner.png")),
                   Positioned(
                     left: Get.width * 0.08,
                     child: IconButton(
@@ -115,12 +127,15 @@ class MovieView extends StatefulWidget {
               ),
               SizedBox(height: Get.height * 0.01),
               IconButton(
-                  onPressed: () {},
-                  icon: Image.asset(
-                    "assets/buttons/booking_button.png",
-                    height: Get.height * 0.07,
-                    width: Get.width * 0.6,
-                  ))
+                onPressed: () {
+                  Get.to(const DateView());
+                },
+                icon: Image.asset(
+                  "assets/buttons/booking_button.png",
+                  height: Get.height * 0.07,
+                  width: Get.width * 0.6,
+                ),
+              )
             ],
           ),
         ),
