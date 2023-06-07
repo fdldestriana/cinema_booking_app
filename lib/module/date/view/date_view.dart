@@ -1,4 +1,5 @@
 import 'package:cinema_booking_app/module/date/widget/component/re_book_widget.dart';
+import 'package:cinema_booking_app/module/date/widget/component/re_category_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:cinema_booking_app/core.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -204,49 +205,9 @@ class DateView extends StatefulWidget {
                       Expanded(
                         child: SizedBox(
                           width: Get.width * 0.75,
-                          child: ListView.separated(
-                            scrollDirection: Axis.horizontal,
-                            padding: EdgeInsets.zero,
-                            separatorBuilder: (context, _) {
-                              return SizedBox(width: Get.width * 0.02);
-                            },
-                            shrinkWrap: true,
-                            itemCount: controller.listOfDates.length,
-                            itemBuilder: (context, index) {
-                              return Container(
-                                padding:
-                                    EdgeInsets.only(top: Get.height * 0.01),
-                                height: Get.height * 0.06,
-                                width: Get.width * 0.13,
-                                decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.circular(Get.width * 0.04),
-                                  color: const Color(0xFF4A4B56),
-                                ),
-                                child: RichText(
-                                  textAlign: TextAlign.center,
-                                  text: TextSpan(
-                                    text:
-                                        "${controller.months.values.elementAt(DateTime.now().month)}\n",
-                                    style: GoogleFonts.roboto(
-                                        color: const Color(0xFFCBCBCB),
-                                        fontSize: 10.24,
-                                        fontWeight: FontWeight.w700),
-                                    children: [
-                                      TextSpan(
-                                        text: controller.listOfDates[index]
-                                            .toString(),
-                                        style: GoogleFonts.roboto(
-                                            color: const Color(0xFFF1F1F1),
-                                            fontSize: 19.39,
-                                            fontWeight: FontWeight.w700),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              );
-                            },
-                          ),
+                          child: ReCategoryPicker(
+                              dates: controller.dates,
+                              months: controller.months),
                         ),
                       ),
                       SizedBox(height: Get.height * 0.01),

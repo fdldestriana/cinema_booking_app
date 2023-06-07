@@ -19,7 +19,7 @@ class DateController extends State<DateView> implements MvcController {
 
     var now = DateTime(2023, 6);
     var totalDays = daysInMonth(now);
-    listOfDates = List.generate(totalDays, (index) => index + 1);
+    dates = List.generate(totalDays, (index) => index + 1);
   }
 
   @override
@@ -42,5 +42,6 @@ class DateController extends State<DateView> implements MvcController {
     12: "Dec",
   };
 
-  late List<int> listOfDates;
+  late List<int> dates;
+  List<String> times = ["8:00 pm", "8:45 pm", "10:00 pm"];
 }

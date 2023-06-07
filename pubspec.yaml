@@ -63,6 +63,7 @@ flutter:
   assets:
     - assets/images/
     - assets/movies/
+    - assets/movies/checkout/
     - assets/buttons/
     - assets/banner/
     - assets/actors/
